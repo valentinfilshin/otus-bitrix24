@@ -10,12 +10,7 @@ use Otus\Local\Infrastructure\TelegramSender;
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 
-echo getenv('TELEGRAM_BOT_SECRET');
-
 $tgSender = new TelegramSender(getenv('TELEGRAM_BOT_SECRET'));
-
-dump($tgSender);
-
-$tgSender->sendMessage((int)getenv('TELEGRAM_CHAT_ID'), 'Hello world');
+$tgSender->sendMessage((int)getenv('TELEGRAM_CHAT_ID'),  date('Y-m-d H:i:s'));
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');
